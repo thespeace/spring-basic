@@ -15,6 +15,15 @@ repositories {
 	mavenCentral()/* 라이브러리를 다운로드 받기 위한 설정(공개사이트) */
 }
 
+/**
+ *  스프링부트 프레임워크가 주요 라이브러리들의 의존관계의 주요 라이브러리들을 자동으로 import한다.
+ *
+ *  - 주요 라이브러리
+ *    1. 웹서버 : tomcat(tomcat-embed-core), webmvc.
+ *    2. 스프링 : spring-core, dependencies, autoconfigure...
+ *    3. 로깅 : logback, slf4j.
+ *    4. 테스트 : junit5, mockito, assertj, spring-test.
+ */
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
