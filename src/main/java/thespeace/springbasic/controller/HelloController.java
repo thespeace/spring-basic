@@ -15,4 +15,9 @@ public class HelloController {
     }                                                                          // 스프링 부트 템플릿엔진 기본 viewName 매핑 :  `resources/templates/` + {ViewName} + `.html`
 
     // 참고 : `spring-boot-devtools` 라이브러리를 추가하면, `html`파일을 컴파일만 해주면 서버 재시작 없이 View파일 변경이 가능하다. 적용 : 인텔리J Recompile 검색.
+
+    @GetMapping("build")
+    public String hello() {
+        return "build";
+    }
 }
