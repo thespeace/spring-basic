@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>mvc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h2>- mvc template</h2>
+<h3>
+    <p th:text="'hello ' + ${name}">hello! empty</p>
+    <p>MVC : Model, View, Controller</p>
+    <p>과거에는 controller와 view가 따로 분리되어 있지 않았다. jsp(java server page)라는 view에서 모든 것을 다하곤 했다.(소위 모델1 방식)</p>
+    <p>지금은 MVC 스타일로 많이 사용하는데, 왜냐하면 관심사(역할과 책임)를 분리하여 view는 화면을 그리는데 모든 역량은 집중하고, controller나 model은 비즈니스 로직과 내부적인 작업을 처리하는데 집중을 해야한다.</p>
+    <p>그래서 model, view, controller로 분리한 것이다.</p>
+    <p>view는 화면과 관련된 일만, 비즈니스 로직과 서버와 관련된 것은 controller나 뒷단 비즈니스 로직에서 관리를 하고, model이라는 것에다가 화면에 필요한 것들을 담아서 넘겨주는 패턴을 많이 사용한다.</p>
+    <br>
+    <p>- 동작 원리</p>
+    <p>웹 브라우저 -> url -> 스프링 부트 -> 내장 톰캣 서버 -> 스프링 컨테이너 -> controller -> mapping method 호출 -> return template(model(name:mvc!!!)) -></p>
+    <p>viewResolver -> Thymeleaf template engine -> rendering -> 변환한 html을 반환</p>
+</h3>
+<hr>
+<a href="/"><h4>Go to Index Page</h4></a>
+</body>
+</html>

@@ -3,6 +3,7 @@ package thespeace.springbasic.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 // controller : 웹 어플리케이션의 첫번째 진입점
 @Controller
@@ -19,5 +20,11 @@ public class HelloController {
     @GetMapping("build")
     public String hello() {
         return "build";
+    }
+
+    @GetMapping("mvc")
+    public String mvc(@RequestParam("name") String name, Model model){ // 외부에서 url parameter로 name을 받아서- (required = false로 하면 무조건 안넘겨도 된다.)
+        model.addAttribute("name", name);                  // model에 name으로 담아 화면으로 전송.
+        return "mvc";                                                  // + 꿀팁 : `ctrl + p` -> Check parameter info.
     }
 }
