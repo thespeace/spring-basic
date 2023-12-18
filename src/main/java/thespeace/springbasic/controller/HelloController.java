@@ -69,4 +69,11 @@ public class HelloController {
             this.name = name;
         }
     }
+
+
+
+    @GetMapping("backend-requirements")
+    public String backendRequirements() {
+        return "backend-requirements";
+    }
 }
