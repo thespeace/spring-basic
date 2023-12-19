@@ -76,4 +76,9 @@ public class HelloController {
     public String backendRequirements() {
         return "backend-requirements";
     }
+
+    @GetMapping("test-case")
+    public String testCase() {
+        return "test-case";
+    }
 }
