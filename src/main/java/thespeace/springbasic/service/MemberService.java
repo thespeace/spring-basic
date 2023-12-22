@@ -15,7 +15,14 @@ public class MemberService {
      *      때문에 Service 비즈니스에 의존적으로 설계를 하고, Repository는 Repository를 잘 드러내는 메서드명을 사용해서 설계하면 된다.
      */
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+//    private final MemberRepository memberRepository = new MemoryMemberRepository(); // 테스트 코드와 같은 인스턴스를 사용하기 위해 변경.
+
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) { // new로 인스턴스 생성이 아니라 외부에서 주입되는 식으로 변경.(DI(디펜던시 인젝션) : 의존성 주입)
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원 가입
