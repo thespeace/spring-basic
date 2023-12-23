@@ -81,4 +81,9 @@ public class HelloController {
     public String testCase() {
         return "test-case";
     }
+
+    @GetMapping("component-scan-auto-dependency-setup")
+    public String beanAndDI1() {
+        return "component-scan-auto-dependency-setup";
+    }
 }

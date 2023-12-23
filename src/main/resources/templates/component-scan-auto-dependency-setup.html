@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>component-scan-auto-dependency-setup</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h1>  컴포넌트 스캔과 자동 의존관계 설정</h1>
+<h3>
+    <p>의존성 주입(DI, Dependency Injection) : 생성자에 @Autowired 가 있으면 스프링이 연관된 객체를 스프링 컨테이너에서 찾아서 넣어준다. 이렇게 객체 의존관계를 외부에서 넣어주는 것을 DI라 한다.</p>
+    <p>이전 테스트에서는 개발자가 직접 주입했고, 여기서는 @Autowired에 의해 스프링이 주입해준다</p>
+    <p>참고: helloController는 스프링이 제공하는 컨트롤러여서 스프링 빈으로 자동 등록된다. @Controller 가 있으면 자동 등록됨</p>
+</h3>
+<hr>
+<h2>컴포넌트 스캔 원리</h2>
+<h3>
+    <p>@Component 애노테이션이 있으면 스프링 빈으로 자동 등록된다.</p>
+    <p>@Controller 컨트롤러가 스프링 빈으로 자동 등록된 이유도 컴포넌트 스캔 때문이다</p>
+    <p>@Component 를 포함하는 다음 애노테이션도 스프링 빈으로 자동 등록된다. @Controlelr, @Service, @Repository</p>
+    <p>참고: 생성자에 @Autowired 를 사용하면 객체 생성 시점에 스프링 컨테이너에서 해당 스프링 빈을 찾아서 주입한다. 생성자가 1개만 있으면 @Autowired 는 생략할 수 있다.</p>
+    <p>참고: 스프링은 스프링 컨테이너에 스프링 빈을 등록할 때, 기본으로 싱글톤으로 등록한다(유일하게 하나만 등록해서 공유한다) 따라서 같은 스프링 빈이면 모두 같은 인스턴스다.<br>
+        설정으로 싱글톤이 아니게 설정할 수 있지만, 특별한 경우를 제외하면 대부분 싱글톤을 사용한다.
+    </p>
+    <p>참고: 컴포넌트 스캔은 @SpringBootApplication이 붙어있는 클래스의 패키지 혹은 패키지 하위만 포함하여 스캔한다.</p>
+</h3>
+<hr>
+<h3>
+    <p>소스 코드 확인 -> `MemberController.java`</p>
+</h3>
+<hr>
+<h4><a href="/">Go to Index Page</a></h4>
+</body>
+</html>

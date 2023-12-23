@@ -1,9 +1,11 @@
 package thespeace.springbasic.repository;
 
+import org.springframework.stereotype.Repository;
 import thespeace.springbasic.domain.Member;
 
 import java.util.*;
 
+@Repository // bean 등록
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>(); // 실무에서는 동시성 문제가 있을 수 있어서 공유되는 변수일때는 ConcurrentHashMap 써야하는데, 예제임으로 단순히 HashMap 사용.

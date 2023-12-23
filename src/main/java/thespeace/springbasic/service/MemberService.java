@@ -1,5 +1,7 @@
 package thespeace.springbasic.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import thespeace.springbasic.domain.Member;
 import thespeace.springbasic.repository.MemberRepository;
 import thespeace.springbasic.repository.MemoryMemberRepository;
@@ -7,6 +9,8 @@ import thespeace.springbasic.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+
+@Service //어노테이션이 없으면 순수한 자바클래스, Bean에 등록해서 공유하여 사용하자.
 public class MemberService {
 
     /**
@@ -20,6 +24,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) { // new로 인스턴스 생성이 아니라 외부에서 주입되는 식으로 변경.(DI(디펜던시 인젝션) : 의존성 주입)
         this.memberRepository = memberRepository;
     }
