@@ -83,7 +83,8 @@ public class HelloController {
     }
 
     @GetMapping("component-scan-auto-dependency-setup")
-    public String beanAndDI1() {
-        return "component-scan-auto-dependency-setup";
-    }
+    public String beanAndDI1() { return "component-scan-auto-dependency-setup"; }
+
+    @GetMapping("registering-bean-java")
+    public String beanAndDI2() { return "registering-bean-java"; }
 }

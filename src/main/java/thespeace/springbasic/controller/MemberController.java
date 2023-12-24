@@ -21,4 +21,13 @@ public class MemberController {
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
+
+/*    @Autowired
+    private MemberService memberService; // field injection, 해당 주입은 중간에 바꿀수있는 요소가 없기때문에 좋지 않다.*/
+
+/*    @Autowired
+    public void setMemberService(MemberService memberService) { // setter injection 방식은 어플리케이션 로딩시점에서 한번 세팅이 되고나면 바꿀일이 없기때문에 잘쓰지않는다.
+        this.memberService = memberService;
+    }*/
+
 }
