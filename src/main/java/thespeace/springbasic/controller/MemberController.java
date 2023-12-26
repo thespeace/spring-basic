@@ -2,6 +2,9 @@ package thespeace.springbasic.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import thespeace.springbasic.domain.Member;
 import thespeace.springbasic.service.MemberService;
 
 @Controller // Spring이 컨테이너에 해당 컨트롤러 객체를 생성해서 컨테이너에 넣어두고 관리를 한다. 이를 스프링 컨테이너에서 스프링 Bean을 관리된다라고 표현한다.
@@ -30,4 +33,20 @@ public class MemberController {
         this.memberService = memberService;
     }*/
 
+    @GetMapping("/members/new")
+    public String creatForm() {
+        return "members/createMemberForm";
+    }
+
+    @PostMapping("/members/new")
+    public String create(MemberForm form) {
+        Member member = new Member();
+        member.setName(form.getName());
+
+        System.out.println("member = " + member.getName());
+        
+        memberService.join(member);
+
+        return "redirect:/home";
+    }
 }
