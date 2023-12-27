@@ -87,4 +87,7 @@ public class HelloController {
 
     @GetMapping("registering-bean-java")
     public String beanAndDI2() { return "registering-bean-java"; }
+
+    @GetMapping("h2")
+    public String h2() { return "h2"; }
 }
