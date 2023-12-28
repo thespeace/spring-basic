@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <title>jdbc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h1>  순수 jdbc와 SOLID:OCP</h1>
+<h3>
+    <p>주의! 이렇게 JDBC API로 직접 코딩하는 것은 20년 전 이야기이다. 따라서 고대 개발자들이 이렇게 고생하고 살았구나 생각하고, 정신건강을 위해 참몬 하고 넘어가자.</p>
+</h3>
+<hr>
+<h2>환경설정</h2>
+<h3>
+    <p>build.gradle 파일에 jdbc, h2 데이터베이스 관련 라이브러리 추가</p>
+    <pre>
+        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+        runtimeOnly 'com.h2database:h2'
+    </pre>
+    <p>스프링 부트 데이터베이스 연결 설정 추가</p>
+    <pre>
+        resources/application.properties
+        ```
+        spring.datasource.url=jdbc:h2:tcp://localhost/~/test
+        spring.datasource.driver-class-name=org.h2.Driver
+        spring.datasource.username=sa
+    </pre>
+    <pre>
+        주의!: 스프링부트 2.4부터는 spring.datasource.username=sa 를 꼭 추가해주어야 한다. 그렇지 않으면
+              Wrong user name or password 오류가 발생한다. 참고로 다음과 같이 마지막에 공백이 들어가면 같은 오
+              류가 발생한다. spring.datasource.username=sa 공백 주의, 공백은 모두 제거해야 한다.
+    </pre>
+</h3>
+<hr>
+<h2>Jdbc 회원 리포지토리 구현 후 "스프링 설정 변경"</h2>
+<h3>
+    <p>개방-폐쇄 원칙(OCP, Open-Closed Principle)을 지켰다</p>
+    <p>스프링의 DI (Dependencies Injection)을 사용하면 기존 코드를 전혀 손대지 않고, 설정(조립, assembly)만으로 구현 클래스를 변경할 수 있다.</p>
+    <p>어떠한 코드도 손대지 않고 새로운 repository 클래스(구현체)를 생성하여 인터페이스를 확장했다. Configuration만 변경함으로서 **객체 지향적인 설계에서 다형성을 활용하게 된것이다**</p>
+    <p>스프링은 이러한 과정을 DI를 통해서 굉장히 편리하게 실행할 수 있게 해준다.</p>
+    <pre>
+        -객체지향 설계 5원칙 SOLID-
+        객체 지향 설계의 정수라고 할 수 있는 5원칙이 집대성됐는데, 바로 SOLID 입니다.
+
+        SRP(Single Responsibility Principle): 단일 책임 원칙
+        OCP(Open Closed Priciple): 개방 폐쇄 원칙(확장에는 열려있고, 수정, 변경에는 닫혀있다)
+        LSP(Listov Substitution Priciple): 리스코프 치환 원칙
+        ISP(Interface Segregation Principle): 인터페이스 분리 원칙
+        DIP(Dependency Inversion Principle): 의존 역전 원칙
+    </pre>
+</h3>
+<hr>
+<h4><a href="/">Go to Index Page</a></h4>
+</body>
+</html>

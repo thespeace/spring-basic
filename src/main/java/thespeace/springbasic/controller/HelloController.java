@@ -90,4 +90,7 @@ public class HelloController {
 
     @GetMapping("h2")
     public String h2() { return "h2"; }
+
+    @GetMapping("jdbc")
+    public String jdbc() { return "jdbc"; }
 }
