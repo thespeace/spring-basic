@@ -9,6 +9,13 @@ import thespeace.springbasic.repository.MemoryMemberRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ *  - 단위 테스트 <-> 통합 테스트 (@SpringBootTest)
+ *    순수한 단위테스트가 훨씬 좋은 테스트일 확률이 높다. 스프링 컨테이너 없이 테스트 할 수 있도록 훈련하는 것이 좋다.
+ *    어쩔 수 없이 스프링 컨테이너까지 올려야 하는 상황이면 테스트 설계가 잘못 됐을 확률이 높다.
+ */
+
+
 class MemberServiceTest {
 
     /**
