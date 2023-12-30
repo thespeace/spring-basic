@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import thespeace.springbasic.repository.JdbcMemberRepository;
+import thespeace.springbasic.repository.JdbcTemplateMemberRepository;
 import thespeace.springbasic.repository.MemberRepository;
 import thespeace.springbasic.repository.MemoryMemberRepository;
 import thespeace.springbasic.service.MemberService;
@@ -28,6 +29,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
