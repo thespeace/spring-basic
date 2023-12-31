@@ -17,6 +17,8 @@ import java.util.Optional;
 
 /**
  *  - jdbcTemplate
+ *    순수 Jdbc와 동일한 환경설정을 하면 된다.
+ *    스프링 JdbcTemplate과 MyBatis 같은 라이브러리는 JDBC API에서 본 반복 코드를 대부분 제거해준다. 하지만 SQL은 직접 작성해야 한다.
  *    Template? 디자인 패턴 중에 템플릿 메서드 패턴으로 코드를 많이 줄였기(중복 제거) 템플릿이 붙는다.
  * */
 

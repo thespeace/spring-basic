@@ -2,6 +2,7 @@ package thespeace.springbasic.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import thespeace.springbasic.domain.Member;
 import thespeace.springbasic.repository.MemberRepository;
 import thespeace.springbasic.repository.MemoryMemberRepository;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 
 //@Service //어노테이션이 없으면 순수한 자바클래스, Bean에 등록해서 공유하여 사용하자.
+@Transactional // 데이터를 저장하고 변경할때는 항상 트랜잭션이 있어야 한다(**JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다**)
 public class MemberService {
 
     /**
