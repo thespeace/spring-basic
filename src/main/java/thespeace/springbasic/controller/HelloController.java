@@ -95,4 +95,6 @@ public class HelloController {
     public String jdbc() { return "jdbc"; }
     @GetMapping("spring-data-jpa")
     public String springDataJpa() { return "spring-data-jpa"; }
+    @GetMapping("aop")
+    public String aop() { return "aop"; }
 }
