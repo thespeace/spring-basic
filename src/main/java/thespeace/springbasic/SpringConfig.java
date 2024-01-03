@@ -3,6 +3,7 @@ package thespeace.springbasic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import thespeace.springbasic.aop.TimeTraceAop;
 import thespeace.springbasic.repository.*;
 import thespeace.springbasic.service.MemberService;
 
@@ -36,6 +37,10 @@ public class SpringConfig {
         return new MemberService(memberRepository);
     }
 
+/*    @Bean // 정형화되어 있는 클래스가 아니기 때문에 AOP라는 걸 인지할 수 있도록 직접 bean에 등록.
+    public TimeTraceAop timeTraceAop() {
+        return new TimeTraceAop();
+    }*/
 //    @Bean
 //    public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
